@@ -215,4 +215,8 @@ RUN echo "9--- build alcor control agent---" && \
     git clone https://github.com/futurewei-cloud/alcor-control-agent.git && \
     cd ~/alcor-control-agent && \
     git submodule update --init --recursive && \
-    cmake .
+    cmake . && \
+    sed -i 's/\(-ldl -lrt -lm -lpthread\)/-lssl -lcrypto \1/' src/CMakeFiles/AlcorControlAgent.dir/link.txt && \
+    sed -i 's/\(-ldl -lrt -lm -lpthread\)/-lssl -lcrypto \1/' test/CMakeFiles/aca_tests.dir/link.txt && \
+    sed -i 's/\(-ldl -lrt -lm -lpthread\)/-lssl -lcrypto \1/' test/CMakeFiles/gs_tests.dir/link.txt && \
+    make
