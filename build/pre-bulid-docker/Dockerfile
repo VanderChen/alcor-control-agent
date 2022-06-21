@@ -215,5 +215,4 @@ RUN echo "9--- build alcor control agent---"
     git clone https://github.com/futurewei-cloud/alcor-control-agent.git
     cd ~/alcor-control-agent
     git submodule update --init --recursive
-    cd ~/alcor-control-agent/build
-    ./aca-machine-init.sh
+    cmake .
