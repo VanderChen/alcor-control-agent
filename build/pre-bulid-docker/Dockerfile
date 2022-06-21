@@ -207,7 +207,7 @@ RUN echo "7--- installing marl ---" && \
     cd ~
 
 RUN echo "8--- install distrinet net-tools---" && \
-    apt install telnet iperf iputils-ping openssh-server
+    apt install -y telnet iperf iputils-ping openssh-server
 
 
 RUN echo "9--- build alcor control agent---" && \
