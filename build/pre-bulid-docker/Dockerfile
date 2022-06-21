@@ -206,13 +206,13 @@ RUN echo "7--- installing marl ---" && \
     make && \
     cd ~
 
-RUN echo "8--- install distrinet net-tools---"
+RUN echo "8--- install distrinet net-tools---" && \
     apt install telnet iperf iputils-ping openssh-server
 
 
 RUN echo "9--- build alcor control agent---"
-    cd ~
-    git clone https://github.com/futurewei-cloud/alcor-control-agent.git
-    cd ~/alcor-control-agent
-    git submodule update --init --recursive
+    cd ~ && \
+    git clone https://github.com/futurewei-cloud/alcor-control-agent.git && \
+    cd ~/alcor-control-agent && \
+    git submodule update --init --recursive && \
     cmake .
